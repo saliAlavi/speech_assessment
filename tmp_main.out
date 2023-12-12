@@ -1,0 +1,82 @@
+# conda environments:
+#
+base                     /apps/miniconda3/23.3.1-py310
+tf                    *  /users/PAS2301/alialavi/.conda/envs/tf
+                         /users/PAS2301/alialavi/miniconda3
+
+/apps/miniconda3/23.3.1-py310/bin/python
+tf
+2023-12-03 00:07:44.164775: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-12-03 00:07:45.361262: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2023-12-03 00:07:45.361393: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2023-12-03 00:07:45.513432: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-12-03 00:07:45.796936: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-12-03 00:07:48.981234: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2023-12-03 00:07:58.375972: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 31141 MB memory:  -> device: 0, name: Tesla V100S-PCIE-32GB, pci bus id: 0000:3b:00.0, compute capability: 7.0
+Start
+Epoch 1/20
+2023-12-03 00:09:51.510820: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:447] Loaded runtime CuDNN library: 8.8.1 but source was compiled with: 8.9.4.  CuDNN library needs to have matching major version and equal or higher minor version. If using a binary install, upgrade your CuDNN library.  If building from sources, make sure the library loaded at runtime is compatible with the version specified during compile configuration.
+2023-12-03 00:09:51.511993: W tensorflow/core/framework/op_kernel.cc:1839] OP_REQUIRES failed at conv_ops_impl.h:1199 : UNIMPLEMENTED: DNN library is not found.
+2023-12-03 00:09:51.514586: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:447] Loaded runtime CuDNN library: 8.8.1 but source was compiled with: 8.9.4.  CuDNN library needs to have matching major version and equal or higher minor version. If using a binary install, upgrade your CuDNN library.  If building from sources, make sure the library loaded at runtime is compatible with the version specified during compile configuration.
+2023-12-03 00:09:51.515452: W tensorflow/core/framework/op_kernel.cc:1839] OP_REQUIRES failed at conv_ops_impl.h:1199 : UNIMPLEMENTED: DNN library is not found.
+Traceback (most recent call last):
+  File "/fs/scratch/PAS2622/ssl_based/tmp_main.py", line 41, in <module>
+    history = model.fit(ds_train,
+              ^^^^^^^^^^^^^^^^^^^
+  File "/users/PAS2301/alialavi/.conda/envs/tf/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/users/PAS2301/alialavi/.conda/envs/tf/lib/python3.11/site-packages/tensorflow/python/eager/execute.py", line 53, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tensorflow.python.framework.errors_impl.UnimplementedError: Graph execution error:
+
+Detected at node sim_siamese_based_model/res_net50/conv2d/Conv2D_1 defined at (most recent call last):
+  File "/fs/scratch/PAS2622/ssl_based/tmp_main.py", line 41, in <module>
+
+  File "/users/PAS2301/alialavi/.conda/envs/tf/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py", line 65, in error_handler
+
+  File "/users/PAS2301/alialavi/.conda/envs/tf/lib/python3.11/site-packages/keras/src/engine/training.py", line 1807, in fit
+
+  File "/users/PAS2301/alialavi/.conda/envs/tf/lib/python3.11/site-packages/keras/src/engine/training.py", line 1401, in train_function
+
+  File "/users/PAS2301/alialavi/.conda/envs/tf/lib/python3.11/site-packages/keras/src/engine/training.py", line 1384, in step_function
+
+  File "/users/PAS2301/alialavi/.conda/envs/tf/lib/python3.11/site-packages/keras/src/engine/training.py", line 1373, in run_step
+
+  File "/fs/scratch/PAS2622/ssl_based/models/base_simsiame.py", line 347, in train_step
+
+  File "/users/PAS2301/alialavi/.conda/envs/tf/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py", line 65, in error_handler
+
+  File "/users/PAS2301/alialavi/.conda/envs/tf/lib/python3.11/site-packages/keras/src/engine/training.py", line 590, in __call__
+
+  File "/users/PAS2301/alialavi/.conda/envs/tf/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py", line 65, in error_handler
+
+  File "/users/PAS2301/alialavi/.conda/envs/tf/lib/python3.11/site-packages/keras/src/engine/base_layer.py", line 1149, in __call__
+
+  File "/users/PAS2301/alialavi/.conda/envs/tf/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py", line 96, in error_handler
+
+  File "/fs/scratch/PAS2622/ssl_based/models/base_simsiame.py", line 391, in call
+
+  File "/fs/scratch/PAS2622/ssl_based/models/base_simsiame.py", line 400, in call
+
+  File "/users/PAS2301/alialavi/.conda/envs/tf/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py", line 65, in error_handler
+
+  File "/users/PAS2301/alialavi/.conda/envs/tf/lib/python3.11/site-packages/keras/src/engine/base_layer.py", line 1149, in __call__
+
+  File "/users/PAS2301/alialavi/.conda/envs/tf/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py", line 96, in error_handler
+
+  File "/fs/scratch/PAS2622/ssl_based/models/base_simsiame.py", line 120, in call
+
+  File "/users/PAS2301/alialavi/.conda/envs/tf/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py", line 65, in error_handler
+
+  File "/users/PAS2301/alialavi/.conda/envs/tf/lib/python3.11/site-packages/keras/src/engine/base_layer.py", line 1149, in __call__
+
+  File "/users/PAS2301/alialavi/.conda/envs/tf/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py", line 96, in error_handler
+
+  File "/users/PAS2301/alialavi/.conda/envs/tf/lib/python3.11/site-packages/keras/src/layers/convolutional/base_conv.py", line 290, in call
+
+  File "/users/PAS2301/alialavi/.conda/envs/tf/lib/python3.11/site-packages/keras/src/layers/convolutional/base_conv.py", line 262, in convolution_op
+
+DNN library is not found.
+	 [[{{node sim_siamese_based_model/res_net50/conv2d/Conv2D_1}}]] [Op:__inference_train_function_35791]

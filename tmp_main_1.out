@@ -1,0 +1,17 @@
+Lmod has detected the following error: The following module(s) are unknown:
+"cudnn/8.6.0.163-11.8"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore-cache load "cudnn/8.6.0.163-11.8"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+tf
+Traceback (most recent call last):
+  File "tmp_main.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'

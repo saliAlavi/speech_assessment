@@ -1,0 +1,127 @@
+local
+2023-12-05 18:12:09.460845: I tensorflow/core/util/port.cc:111] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-12-05 18:12:11.076110: E tensorflow/compiler/xla/stream_executor/cuda/cuda_dnn.cc:9342] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2023-12-05 18:12:11.076188: E tensorflow/compiler/xla/stream_executor/cuda/cuda_fft.cc:609] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2023-12-05 18:12:11.076620: E tensorflow/compiler/xla/stream_executor/cuda/cuda_blas.cc:1518] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-12-05 18:12:11.360819: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-12-05 18:12:29.463657: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1886] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 31141 MB memory:  -> device: 0, name: Tesla V100-SXM2-32GB, pci bus id: 0000:af:00.0, compute capability: 7.0
+Start
+Epoch 1/500
+Traceback (most recent call last):
+  File "/fs/scratch/PAS2622/ssl_based/tmp_main.py", line 42, in <module>
+    history = model.fit(ds_train,
+  File "/users/PAS2301/kibria5/.conda/envs/local/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/tmp/slurmtmp.24983566/__autograph_generated_files1mkryzj.py", line 15, in tf__train_function
+    retval_ = ag__.converted_call(ag__.ld(step_function), (ag__.ld(self), ag__.ld(iterator)), None, fscope)
+  File "/fs/scratch/PAS2622/ssl_based/models/base_simsiame.py", line 314, in train_step
+    p_0, z_0 = self([audio_0_n,audio_1_n], contrastive=True, training=True)
+  File "/tmp/slurmtmp.24983566/__autograph_generated_file66tm_5a3.py", line 50, in tf__call
+    ag__.if_stmt(ag__.ld(contrastive), if_body, else_body, get_state, set_state, ('do_return', 'retval_'), 2)
+  File "/tmp/slurmtmp.24983566/__autograph_generated_file66tm_5a3.py", line 22, in if_body
+    p = ag__.converted_call(ag__.ld(self).encoder_base, (ag__.ld(audios),), None, fscope)
+  File "/tmp/slurmtmp.24983566/__autograph_generated_file189d437h.py", line 74, in tf__call
+    ag__.if_stmt(ag__.not_(ag__.ld(self)._has_training_argument), if_body_3, else_body_3, get_state_3, set_state_3, ('result', 'training'), 1)
+  File "/tmp/slurmtmp.24983566/__autograph_generated_file189d437h.py", line 72, in else_body_3
+    result = ag__.converted_call(ag__.ld(smart_cond).smart_cond, (ag__.ld(training), ag__.autograph_artifact(lambda : ag__.converted_call(ag__.ld(f), (), dict(training=True), fscope)), ag__.autograph_artifact(lambda : ag__.converted_call(ag__.ld(f), (), dict(training=False), fscope))), None, fscope)
+  File "/tmp/slurmtmp.24983566/__autograph_generated_file189d437h.py", line 72, in <lambda>
+    result = ag__.converted_call(ag__.ld(smart_cond).smart_cond, (ag__.ld(training), ag__.autograph_artifact(lambda : ag__.converted_call(ag__.ld(f), (), dict(training=True), fscope)), ag__.autograph_artifact(lambda : ag__.converted_call(ag__.ld(f), (), dict(training=False), fscope))), None, fscope)
+ValueError: in user code:
+
+    File "/users/PAS2301/kibria5/.conda/envs/local/lib/python3.9/site-packages/keras/src/engine/training.py", line 1377, in train_function  *
+        return step_function(self, iterator)
+    File "/users/PAS2301/kibria5/.conda/envs/local/lib/python3.9/site-packages/keras/src/engine/training.py", line 1360, in step_function  **
+        outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "/users/PAS2301/kibria5/.conda/envs/local/lib/python3.9/site-packages/keras/src/engine/training.py", line 1349, in run_step  **
+        outputs = model.train_step(data)
+    File "/fs/scratch/PAS2622/ssl_based/models/base_simsiame.py", line 314, in train_step
+        p_0, z_0 = self([audio_0_n,audio_1_n], contrastive=True, training=True)
+    File "/users/PAS2301/kibria5/.conda/envs/local/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 70, in error_handler
+        raise e.with_traceback(filtered_tb) from None
+    File "/tmp/slurmtmp.24983566/__autograph_generated_file66tm_5a3.py", line 50, in tf__call
+        ag__.if_stmt(ag__.ld(contrastive), if_body, else_body, get_state, set_state, ('do_return', 'retval_'), 2)
+    File "/tmp/slurmtmp.24983566/__autograph_generated_file66tm_5a3.py", line 22, in if_body
+        p = ag__.converted_call(ag__.ld(self).encoder_base, (ag__.ld(audios),), None, fscope)
+    File "/tmp/slurmtmp.24983566/__autograph_generated_file189d437h.py", line 74, in tf__call
+        ag__.if_stmt(ag__.not_(ag__.ld(self)._has_training_argument), if_body_3, else_body_3, get_state_3, set_state_3, ('result', 'training'), 1)
+    File "/tmp/slurmtmp.24983566/__autograph_generated_file189d437h.py", line 72, in else_body_3
+        result = ag__.converted_call(ag__.ld(smart_cond).smart_cond, (ag__.ld(training), ag__.autograph_artifact(lambda : ag__.converted_call(ag__.ld(f), (), dict(training=True), fscope)), ag__.autograph_artifact(lambda : ag__.converted_call(ag__.ld(f), (), dict(training=False), fscope))), None, fscope)
+    File "/tmp/slurmtmp.24983566/__autograph_generated_file189d437h.py", line 72, in <lambda>
+        result = ag__.converted_call(ag__.ld(smart_cond).smart_cond, (ag__.ld(training), ag__.autograph_artifact(lambda : ag__.converted_call(ag__.ld(f), (), dict(training=True), fscope)), ag__.autograph_artifact(lambda : ag__.converted_call(ag__.ld(f), (), dict(training=False), fscope))), None, fscope)
+
+    ValueError: Exception encountered when calling layer 'sim_siamese_based_model' (type SimSiameseBasedModel).
+    
+    in user code:
+    
+        File "/fs/scratch/PAS2622/ssl_based/models/base_simsiame.py", line 398, in call  *
+            p = self.encoder_base(audios)
+        File "/users/PAS2301/kibria5/.conda/envs/local/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 70, in error_handler  **
+            raise e.with_traceback(filtered_tb) from None
+        File "/tmp/slurmtmp.24983566/__autograph_generated_file189d437h.py", line 74, in tf__call
+            ag__.if_stmt(ag__.not_(ag__.ld(self)._has_training_argument), if_body_3, else_body_3, get_state_3, set_state_3, ('result', 'training'), 1)
+        File "/tmp/slurmtmp.24983566/__autograph_generated_file189d437h.py", line 72, in else_body_3
+            result = ag__.converted_call(ag__.ld(smart_cond).smart_cond, (ag__.ld(training), ag__.autograph_artifact(lambda : ag__.converted_call(ag__.ld(f), (), dict(training=True), fscope)), ag__.autograph_artifact(lambda : ag__.converted_call(ag__.ld(f), (), dict(training=False), fscope))), None, fscope)
+        File "/tmp/slurmtmp.24983566/__autograph_generated_file189d437h.py", line 72, in <lambda>
+            result = ag__.converted_call(ag__.ld(smart_cond).smart_cond, (ag__.ld(training), ag__.autograph_artifact(lambda : ag__.converted_call(ag__.ld(f), (), dict(training=True), fscope)), ag__.autograph_artifact(lambda : ag__.converted_call(ag__.ld(f), (), dict(training=False), fscope))), None, fscope)
+    
+        ValueError: Exception encountered when calling layer 'keras_layer' (type KerasLayer).
+        
+        in user code:
+        
+            File "/users/PAS2301/kibria5/.conda/envs/local/lib/python3.9/site-packages/tensorflow_hub/keras_layer.py", line 242, in call  *
+                result = smart_cond.smart_cond(training,
+        
+            ValueError: Could not find matching concrete function to call loaded from the SavedModel. Got:
+              Positional arguments (4 total):
+                * <tf.Tensor 'inputs:0' shape=(4, 257, 1201, 2) dtype=float32>
+                * True
+                * False
+                * 0.99
+              Keyword arguments: {}
+            
+             Expected these arguments to match one of the following 4 option(s):
+            
+            Option 1:
+              Positional arguments (4 total):
+                * TensorSpec(shape=(None, 128, 128, 3), dtype=tf.float32, name='inputs')
+                * True
+                * True
+                * TensorSpec(shape=(), dtype=tf.float32, name='batch_norm_momentum')
+              Keyword arguments: {}
+            
+            Option 2:
+              Positional arguments (4 total):
+                * TensorSpec(shape=(None, 128, 128, 3), dtype=tf.float32, name='inputs')
+                * True
+                * False
+                * TensorSpec(shape=(), dtype=tf.float32, name='batch_norm_momentum')
+              Keyword arguments: {}
+            
+            Option 3:
+              Positional arguments (4 total):
+                * TensorSpec(shape=(None, 128, 128, 3), dtype=tf.float32, name='inputs')
+                * False
+                * True
+                * TensorSpec(shape=(), dtype=tf.float32, name='batch_norm_momentum')
+              Keyword arguments: {}
+            
+            Option 4:
+              Positional arguments (4 total):
+                * TensorSpec(shape=(None, 128, 128, 3), dtype=tf.float32, name='inputs')
+                * False
+                * False
+                * TensorSpec(shape=(), dtype=tf.float32, name='batch_norm_momentum')
+              Keyword arguments: {}
+        
+        
+        Call arguments received by layer 'keras_layer' (type KerasLayer):
+          • inputs=tf.Tensor(shape=(4, 257, 1201, 2), dtype=float32)
+          • training=True
+    
+    
+    Call arguments received by layer 'sim_siamese_based_model' (type SimSiameseBasedModel):
+      • data_inp=['tf.Tensor(shape=(4, 257, 1201), dtype=float32)', 'tf.Tensor(shape=(4, 257, 1201), dtype=float32)']
+      • training=True
+      • contrastive=True
+

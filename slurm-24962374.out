@@ -1,0 +1,48 @@
+local
+2023-12-03 21:09:58.154597: I tensorflow/core/util/port.cc:111] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-12-03 21:09:59.391667: E tensorflow/compiler/xla/stream_executor/cuda/cuda_dnn.cc:9342] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2023-12-03 21:09:59.391761: E tensorflow/compiler/xla/stream_executor/cuda/cuda_fft.cc:609] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2023-12-03 21:09:59.392184: E tensorflow/compiler/xla/stream_executor/cuda/cuda_blas.cc:1518] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-12-03 21:10:00.042826: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-12-03 21:10:22.339594: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1886] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 31141 MB memory:  -> device: 0, name: Tesla V100S-PCIE-32GB, pci bus id: 0000:3b:00.0, compute capability: 7.0
+2023-12-03 21:10:22.340158: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1886] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 31141 MB memory:  -> device: 1, name: Tesla V100S-PCIE-32GB, pci bus id: 0000:d8:00.0, compute capability: 7.0
+Start
+Traceback (most recent call last):
+  File "/fs/scratch/PAS2622/ssl_based/tmp_main.py", line 21, in <module>
+    (ds_train, ds_test), dataset_info = tfds.load(dataset_name, split=['train','test'], shuffle_files=True,with_info=True,)
+  File "/users/PAS2301/kibria5/.conda/envs/local/lib/python3.9/site-packages/tensorflow_datasets/core/logging/__init__.py", line 166, in __call__
+    return function(*args, **kwargs)
+  File "/users/PAS2301/kibria5/.conda/envs/local/lib/python3.9/site-packages/tensorflow_datasets/core/load.py", line 651, in load
+    ds = dbuilder.as_dataset(**as_dataset_kwargs)
+  File "/users/PAS2301/kibria5/.conda/envs/local/lib/python3.9/site-packages/tensorflow_datasets/core/logging/__init__.py", line 166, in __call__
+    return function(*args, **kwargs)
+  File "/users/PAS2301/kibria5/.conda/envs/local/lib/python3.9/site-packages/tensorflow_datasets/core/dataset_builder.py", line 886, in as_dataset
+    all_ds = tree_utils.map_structure(build_single_dataset, split)
+  File "/users/PAS2301/kibria5/.conda/envs/local/lib/python3.9/site-packages/tree/__init__.py", line 435, in map_structure
+    [func(*args) for args in zip(*map(flatten, structures))])
+  File "/users/PAS2301/kibria5/.conda/envs/local/lib/python3.9/site-packages/tree/__init__.py", line 435, in <listcomp>
+    [func(*args) for args in zip(*map(flatten, structures))])
+  File "/users/PAS2301/kibria5/.conda/envs/local/lib/python3.9/site-packages/tensorflow_datasets/core/dataset_builder.py", line 904, in _build_single_dataset
+    ds = self._as_dataset(
+  File "/users/PAS2301/kibria5/.conda/envs/local/lib/python3.9/site-packages/tensorflow_datasets/core/dataset_builder.py", line 1351, in _as_dataset
+    return reader.read(
+  File "/users/PAS2301/kibria5/.conda/envs/local/lib/python3.9/site-packages/tensorflow_datasets/core/reader.py", line 422, in read
+    return tree_utils.map_structure(_read_instruction_to_ds, instructions)
+  File "/users/PAS2301/kibria5/.conda/envs/local/lib/python3.9/site-packages/tree/__init__.py", line 435, in map_structure
+    [func(*args) for args in zip(*map(flatten, structures))])
+  File "/users/PAS2301/kibria5/.conda/envs/local/lib/python3.9/site-packages/tree/__init__.py", line 435, in <listcomp>
+    [func(*args) for args in zip(*map(flatten, structures))])
+  File "/users/PAS2301/kibria5/.conda/envs/local/lib/python3.9/site-packages/tensorflow_datasets/core/reader.py", line 413, in _read_instruction_to_ds
+    file_instructions = splits_dict[instruction].file_instructions
+  File "/users/PAS2301/kibria5/.conda/envs/local/lib/python3.9/site-packages/tensorflow_datasets/core/splits.py", line 411, in __getitem__
+    instructions = _make_file_instructions(
+  File "/users/PAS2301/kibria5/.conda/envs/local/lib/python3.9/site-packages/tensorflow_datasets/core/splits.py", line 512, in _make_file_instructions
+    absolute_instructions = _make_absolute_instructions(
+  File "/users/PAS2301/kibria5/.conda/envs/local/lib/python3.9/site-packages/tensorflow_datasets/core/splits.py", line 470, in _make_absolute_instructions
+    return instruction.to_absolute(split_info_map)
+  File "/users/PAS2301/kibria5/.conda/envs/local/lib/python3.9/site-packages/tensorflow_datasets/core/splits.py", line 684, in to_absolute
+    return [_rel_to_abs_instr(self, split_infos)]
+  File "/users/PAS2301/kibria5/.conda/envs/local/lib/python3.9/site-packages/tensorflow_datasets/core/splits.py", line 780, in _rel_to_abs_instr
+    raise ValueError(
+ValueError: Unknown split 'train'. Should be one of ['train_sim', 'train_live', 'test_sim', 'test_live'].

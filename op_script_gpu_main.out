@@ -1,0 +1,68 @@
+Not a conda environment: /users/PAS2301/alialavi/miniconda3/envs/tf
+
+Package                      Version
+---------------------------- -------------------
+absl-py                      1.4.0
+astunparse                   1.6.3
+brotlipy                     0.7.0
+cachetools                   5.3.0
+certifi                      2021.5.30
+cffi                         1.14.6
+chardet                      4.0.0
+conda                        4.10.3
+conda-package-handling       1.7.3
+cryptography                 3.4.7
+flatbuffers                  23.5.26
+gast                         0.4.0
+google-auth                  2.19.0
+google-auth-oauthlib         0.4.6
+google-pasta                 0.2.0
+grpcio                       1.54.2
+h5py                         3.8.0
+idna                         2.10
+importlib-metadata           6.6.0
+keras                        2.11.0
+libclang                     16.0.0
+Markdown                     3.4.3
+MarkupSafe                   2.1.2
+numpy                        1.21.6
+nvidia-cublas-cu11           11.10.3.66
+nvidia-cuda-nvrtc-cu11       11.7.99
+nvidia-cuda-runtime-cu11     11.7.99
+nvidia-cudnn-cu11            8.5.0.96
+oauthlib                     3.2.2
+opt-einsum                   3.3.0
+packaging                    23.1
+pip                          21.1.3
+protobuf                     3.19.6
+pyasn1                       0.5.0
+pyasn1-modules               0.3.0
+pycosat                      0.6.3
+pycparser                    2.20
+pyOpenSSL                    20.0.1
+PySocks                      1.7.1
+requests                     2.25.1
+requests-oauthlib            1.3.1
+rsa                          4.9
+ruamel-yaml-conda            0.15.100
+setuptools                   52.0.0.post20210125
+six                          1.16.0
+tensorboard                  2.11.2
+tensorboard-data-server      0.6.1
+tensorboard-plugin-wit       1.8.1
+tensorflow                   2.11.0
+tensorflow-estimator         2.11.0
+tensorflow-io-gcs-filesystem 0.32.0
+termcolor                    2.3.0
+torch                        1.13.1
+tqdm                         4.61.2
+typing-extensions            4.5.0
+urllib3                      1.26.6
+Werkzeug                     2.2.3
+wheel                        0.36.2
+wrapt                        1.15.0
+zipp                         3.15.0
+Traceback (most recent call last):
+  File "scratch_file.py", line 4, in <module>
+    from IPython import display
+ModuleNotFoundError: No module named 'IPython'

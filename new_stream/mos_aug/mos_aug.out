@@ -1,0 +1,122 @@
+local
+2023-12-04 19:33:05.755155: I tensorflow/core/util/port.cc:111] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-12-04 19:33:05.811394: E tensorflow/compiler/xla/stream_executor/cuda/cuda_dnn.cc:9342] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2023-12-04 19:33:05.811455: E tensorflow/compiler/xla/stream_executor/cuda/cuda_fft.cc:609] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2023-12-04 19:33:05.811487: E tensorflow/compiler/xla/stream_executor/cuda/cuda_blas.cc:1518] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-12-04 19:33:05.821254: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+/users/PAS2301/kibria5/.conda/envs/local/lib/python3.9/site-packages/tensorflow_addons/utils/tfa_eol_msg.py:23: UserWarning: 
+
+TensorFlow Addons (TFA) has ended development and introduction of new features.
+TFA has entered a minimal maintenance and release mode until a planned end of life in May 2024.
+Please modify downstream libraries to take dependencies from other repositories in our TensorFlow community (e.g. Keras, Keras-CV, and Keras-NLP). 
+
+For more information see: https://github.com/tensorflow/addons/issues/2807 
+
+  warnings.warn(
+2023-12-04 19:33:12.948109: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1886] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 31141 MB memory:  -> device: 0, name: Tesla V100S-PCIE-32GB, pci bus id: 0000:3b:00.0, compute capability: 7.0
+2023-12-04 19:33:12.948687: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1886] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 31141 MB memory:  -> device: 1, name: Tesla V100S-PCIE-32GB, pci bus id: 0000:d8:00.0, compute capability: 7.0
+2023-12-04 19:34:04.953236: W tensorflow/core/grappler/optimizers/data/auto_shard.cc:553] The `assert_cardinality` transformation is currently not handled by the auto-shard rewrite and will be removed.
+2.14.0
+[PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU'), PhysicalDevice(name='/physical_device:GPU:1', device_type='GPU')]
+Number of devices: 2
+Model: "model"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_2 (InputLayer)        [(None, 128, 1201, 1)]    0         
+                                                                 
+ resnet50 (Functional)       (None, 4, 38, 2048)       23581440  
+                                                                 
+ global_average_pooling2d (  (None, 2048)              0         
+ GlobalAveragePooling2D)                                         
+                                                                 
+ dense (Dense)               (None, 2048)              4194304   
+                                                                 
+ re_lu (ReLU)                (None, 2048)              0         
+                                                                 
+ dense_1 (Dense)             (None, 2048)              4194304   
+                                                                 
+ re_lu_1 (ReLU)              (None, 2048)              0         
+                                                                 
+ dense_2 (Dense)             (None, 2048)              4196352   
+                                                                 
+=================================================================
+Total params: 36166400 (137.96 MB)
+Trainable params: 36113280 (137.76 MB)
+Non-trainable params: 53120 (207.50 KB)
+_________________________________________________________________
+Model: "model_1"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_3 (InputLayer)        [(None, 2048)]            0         
+                                                                 
+ dense_3 (Dense)             (None, 512)               1048576   
+                                                                 
+ re_lu_2 (ReLU)              (None, 512)               0         
+                                                                 
+ dense_4 (Dense)             (None, 2048)              1050624   
+                                                                 
+=================================================================
+Total params: 2099200 (8.01 MB)
+Trainable params: 2099200 (8.01 MB)
+Non-trainable params: 0 (0.00 Byte)
+_________________________________________________________________
+  0%|          | 0/50 [00:00<?, ?it/s]2023-12-04 19:34:44.134356: I tensorflow/compiler/xla/stream_executor/cuda/cuda_dnn.cc:442] Loaded cuDNN version 8801
+2023-12-04 19:34:45.572561: I tensorflow/compiler/xla/stream_executor/cuda/cuda_dnn.cc:442] Loaded cuDNN version 8801
+2023-12-04 19:34:54.806115: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x2b50b657a610 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2023-12-04 19:34:54.806241: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Tesla V100S-PCIE-32GB, Compute Capability 7.0
+2023-12-04 19:34:54.806275: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (1): Tesla V100S-PCIE-32GB, Compute Capability 7.0
+2023-12-04 19:34:55.290129: I ./tensorflow/compiler/jit/device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+  2%|▏         | 1/50 [02:30<2:03:08, 150.79s/it]  4%|▍         | 2/50 [04:14<1:38:28, 123.09s/it]  6%|▌         | 3/50 [05:58<1:29:36, 114.40s/it]  8%|▊         | 4/50 [07:40<1:23:48, 109.31s/it] 10%|█         | 5/50 [09:23<1:20:20, 107.11s/it] 12%|█▏        | 6/50 [11:05<1:17:24, 105.56s/it] 14%|█▍        | 7/50 [12:48<1:14:57, 104.59s/it] 16%|█▌        | 8/50 [14:29<1:12:32, 103.64s/it] 18%|█▊        | 9/50 [16:14<1:10:57, 103.84s/it] 20%|██        | 10/50 [17:57<1:09:04, 103.61s/it] 22%|██▏       | 11/50 [19:39<1:07:06, 103.25s/it] 24%|██▍       | 12/50 [21:23<1:05:25, 103.30s/it] 26%|██▌       | 13/50 [23:06<1:03:42, 103.30s/it] 28%|██▊       | 14/50 [24:48<1:01:47, 102.98s/it] 30%|███       | 15/50 [26:32<1:00:11, 103.20s/it] 32%|███▏      | 16/50 [28:17<58:51, 103.86s/it]   34%|███▍      | 17/50 [30:00<56:57, 103.57s/it] 36%|███▌      | 18/50 [31:43<55:10, 103.46s/it] 38%|███▊      | 19/50 [33:27<53:31, 103.60s/it] 40%|████      | 20/50 [35:10<51:35, 103.19s/it] 42%|████▏     | 21/50 [36:53<49:51, 103.14s/it] 44%|████▍     | 22/50 [38:36<48:06, 103.09s/it] 46%|████▌     | 23/50 [40:19<46:27, 103.22s/it] 48%|████▊     | 24/50 [42:03<44:45, 103.27s/it] 50%|█████     | 25/50 [43:47<43:07, 103.49s/it] 52%|█████▏    | 26/50 [45:29<41:18, 103.25s/it] 54%|█████▍    | 27/50 [47:11<39:26, 102.89s/it] 56%|█████▌    | 28/50 [48:55<37:46, 103.01s/it] 58%|█████▊    | 29/50 [50:48<37:09, 106.17s/it] 60%|██████    | 30/50 [52:30<34:59, 104.97s/it] 62%|██████▏   | 31/50 [54:12<32:58, 104.12s/it] 64%|██████▍   | 32/50 [55:55<31:03, 103.52s/it] 66%|██████▌   | 33/50 [57:37<29:12, 103.07s/it] 68%|██████▊   | 34/50 [59:20<27:31, 103.23s/it] 70%|███████   | 35/50 [1:01:04<25:49, 103.28s/it] 72%|███████▏  | 36/50 [1:02:47<24:06, 103.35s/it] 74%|███████▍  | 37/50 [1:04:31<22:23, 103.38s/it] 76%|███████▌  | 38/50 [1:06:13<20:37, 103.15s/it] 78%|███████▊  | 39/50 [1:07:56<18:54, 103.16s/it] 80%|████████  | 40/50 [1:09:40<17:12, 103.22s/it] 82%|████████▏ | 41/50 [1:11:23<15:29, 103.33s/it] 84%|████████▍ | 42/50 [1:13:07<13:46, 103.34s/it] 86%|████████▌ | 43/50 [1:14:50<12:03, 103.30s/it] 88%|████████▊ | 44/50 [1:16:32<10:17, 102.87s/it] 90%|█████████ | 45/50 [1:18:15<08:34, 102.97s/it] 92%|█████████▏| 46/50 [1:19:56<06:50, 102.52s/it] 94%|█████████▍| 47/50 [1:21:40<05:08, 102.93s/it] 96%|█████████▌| 48/50 [1:23:24<03:26, 103.10s/it] 98%|█████████▊| 49/50 [1:25:07<01:43, 103.17s/it]100%|██████████| 50/50 [1:26:51<00:00, 103.51s/it]100%|██████████| 50/50 [1:26:51<00:00, 104.24s/it]
+epoch: 1 loss: -0.889
+epoch: 2 loss: -0.941
+epoch: 3 loss: -0.958
+epoch: 4 loss: -0.967
+epoch: 5 loss: -0.972
+epoch: 6 loss: -0.976
+epoch: 7 loss: -0.978
+epoch: 8 loss: -0.980
+epoch: 9 loss: -0.981
+epoch: 10 loss: -0.983
+epoch: 11 loss: -0.984
+epoch: 12 loss: -0.984
+epoch: 13 loss: -0.985
+epoch: 14 loss: -0.986
+epoch: 15 loss: -0.986
+epoch: 16 loss: -0.987
+epoch: 17 loss: -0.987
+epoch: 18 loss: -0.987
+epoch: 19 loss: -0.988
+epoch: 20 loss: -0.988
+epoch: 21 loss: -0.988
+epoch: 22 loss: -0.988
+epoch: 23 loss: -0.988
+epoch: 24 loss: -0.989
+epoch: 25 loss: -0.989
+epoch: 26 loss: -0.989
+epoch: 27 loss: -0.989
+epoch: 28 loss: -0.989
+epoch: 29 loss: -0.989
+epoch: 30 loss: -0.990
+epoch: 31 loss: -0.990
+epoch: 32 loss: -0.990
+epoch: 33 loss: -0.990
+epoch: 34 loss: -0.990
+epoch: 35 loss: -0.990
+epoch: 36 loss: -0.990
+epoch: 37 loss: -0.990
+epoch: 38 loss: -0.990
+epoch: 39 loss: -0.990
+epoch: 40 loss: -0.990
+epoch: 41 loss: -0.990
+epoch: 42 loss: -0.991
+epoch: 43 loss: -0.991
+epoch: 44 loss: -0.991
+epoch: 45 loss: -0.991
+epoch: 46 loss: -0.991
+epoch: 47 loss: -0.991
+epoch: 48 loss: -0.991
+epoch: 49 loss: -0.991
+epoch: 50 loss: -0.991
